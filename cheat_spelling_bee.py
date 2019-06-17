@@ -1,6 +1,3 @@
-import sys
-
-
 def check_line(line, letters, center):
     """check whether word is valid with these letters"""
     if center not in line:
@@ -18,12 +15,12 @@ def check_bingo(line, letters):
     return True
 
 
-def main():
-    letters = 'WOMANHD'
-    center = 'M'
-    if len(sys.argv) == 3:
-        letters = sys.argv[1]
-        center = sys.argv[2]
+def solve(letters, center):
+    letters = letters.upper()
+    center = center.upper()
+    if center not in letters:
+        letters += center
+
     with open('sowpods-spelling-bee.txt') as infile:
         lines = infile.readlines()
 
@@ -35,7 +32,3 @@ def main():
             if check_bingo(line, letters):
                 bingos.append(line)
     print("bingos:", bingos)
-
-
-if __name__ == '__main__':
-    main()

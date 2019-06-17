@@ -1,6 +1,3 @@
-import sys
-
-
 # might not work if there are duplicate letters
 def check_word(sides, line):
     prev = -1
@@ -19,10 +16,8 @@ def check_word(sides, line):
     return True
 
 
-def main():
-    sides = ['PDS', 'LEI', 'CMO', 'RTU']
-    if len(sys.argv) == 5:
-        sides = sys.argv[1:]
+def solve(sides):
+    sides = [side.upper() for side in sides]
 
     with open('sowpods-letter-boxed.txt') as infile:
         lines = infile.readlines()
@@ -65,15 +60,13 @@ def main():
         if len(''.join(answer)) == shortest:
             shorties.append(answer)
 
+    print('************ANSWERS************')
     for answer in answers:
         print(answer)
-    print('\n\n\n************TERSEST************')
+    print('\n\n************TERSEST************')
     for answer in shorties:
         print(answer)
-    print('\n\n\n************SINGLES************')
+    print('\n\n************SINGLES************')
     for answer in singles:
         print(answer)
-
-
-if __name__ == '__main__':
-    main()
+    print('\n')
