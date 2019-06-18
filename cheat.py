@@ -1,4 +1,6 @@
 import argparse
+import os
+import sys
 
 import cheat_letter_boxed
 import cheat_spelling_bee
@@ -13,6 +15,8 @@ def solve_letter_boxed(args):
 
 
 def main():
+    os.chdir(sys.path[0])
+
     parser = argparse.ArgumentParser(description='Cheat at word games')
     subparsers = parser.add_subparsers(dest='command', required=True)
 
