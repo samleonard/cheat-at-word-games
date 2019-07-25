@@ -2,6 +2,8 @@ def create_spelling_bee_file():
     def spelling_bee_filter(line):
         if len(line.strip()) < 4:
             return False
+        if len(set(list(line.strip()))) > 7:
+            return False
         return True
 
     with open('sowpods.txt') as infile:
@@ -28,4 +30,4 @@ def create_letter_boxed_file():
 
 
 if __name__ == '__main__':
-    create_letter_boxed_file()
+    create_spelling_bee_file()
